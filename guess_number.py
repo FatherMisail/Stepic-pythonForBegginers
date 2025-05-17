@@ -1,16 +1,11 @@
 import random
 
 
-DEFAULT_RIGHT_BORDER = 1000
-
-right_border = DEFAULT_RIGHT_BORDER
-
-
-def is_valid_digit(m):
+def is_valid_digit(m, right_border=1000):
     return m.isdigit() and 1 <= int(m) <= right_border
 
 
-def play():
+def play(right_border):
     n = random.randint(1, right_border)
 
     try_counter = 0
@@ -18,7 +13,7 @@ def play():
         print(f'Введите число в диапазоне [1, {right_border}]: ', end='')
         m = input()
 
-        if not is_valid_digit(m):
+        if not is_valid_digit(m, int(right_border)):
             print(f'А может быть все-таки введем целое число от 1 до {right_border}?')
             continue
 
@@ -39,18 +34,15 @@ def play():
 
 
 def main():
-    global right_border
-
     print('Добро пожаловать в числовую угадайку!')
 
     game_continue = True
     while game_continue:
         while True:
             print('Укажите правую границу: ', end='')
-            b = input()
-            if is_valid_digit(b):
-                right_border = int(b)
-                play()
+            right_border = input()
+            if is_valid_digit(right_border):
+                play(int(right_border))
                 break
 
         while True:
@@ -60,7 +52,6 @@ def main():
                 game_continue = False
                 break
             elif ans == 'Д':
-                right_border = DEFAULT_RIGHT_BORDER
                 break
 
             print(f'А может быть все-таки введем <Д> или <Н>?')
