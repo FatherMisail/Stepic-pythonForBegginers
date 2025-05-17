@@ -1,7 +1,9 @@
 import random
 
 
-right_border = 1000
+DEFAULT_RIGHT_BORDER = 1000
+
+right_border = DEFAULT_RIGHT_BORDER
 
 
 def is_valid_digit(m):
@@ -58,7 +60,7 @@ def main():
                 game_continue = False
                 break
             elif ans == 'Д':
-                right_border = 1000
+                right_border = DEFAULT_RIGHT_BORDER
                 break
 
             print(f'А может быть все-таки введем <Д> или <Н>?')
