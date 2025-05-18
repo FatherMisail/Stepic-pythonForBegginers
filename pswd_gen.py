@@ -5,18 +5,25 @@ def is_nat(n):
     return n.isdigit() and int(n) >= 0
 
 
-def gen(pswd_cnt, pswd_len, chars):
-    pswds = []
+def generate_password(length, chars):
+    pswd = []
+    new_pswd_len = length + math.floor(length ** (1 / 3) * random.random() * 3)
     al = []
     al.extend(chars)
     random.shuffle(al)
+
+    for _ in range(new_pswd_len):
+        pswd.append(random.choice(al))
+    random.shuffle(pswd)
+
+    return ''.join(pswd)
+
+
+def generate_passwords(pswd_cnt, pswd_len, chars):
+    pswds = []
+
     for _ in range(pswd_cnt):
-        pswd = []
-        new_pswd_len = pswd_len + math.floor(pswd_len ** (1 / 3) * random.random() * 3)
-        for _ in range(new_pswd_len):
-            pswd.append(random.choice(al))
-        random.shuffle(pswd)
-        pswds.append(''.join(pswd))
+        pswds.append(generate_password(pswd_len, chars))
 
     return pswds
 
@@ -92,7 +99,7 @@ def main():
         elif ans == 'Н':
             break
 
-    print(*gen(pswd_cnt, pswd_len, chars), sep='\n')
+    print(*generate_passwords(pswd_cnt, pswd_len, chars), sep='\n')
 
 
 main()
