@@ -8,7 +8,7 @@ ambiguous_sym = 'il1Lo0O'
 
 
 def is_nat(n):
-    return n.isdigit() and int(n) >= 0
+    return n.isdigit() and int(n) > 0
 
 
 def generate_password(length, chars):
@@ -41,10 +41,6 @@ def main():
         if is_nat(pswd_cnt):
             pswd_cnt = int(pswd_cnt)
             break
-
-    if pswd_cnt == 0:
-        print('Нечего генерировать')
-        return
 
     while True:
         print('Введите примерную длинну пароля: ', end='')
