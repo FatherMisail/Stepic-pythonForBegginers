@@ -29,8 +29,10 @@ def crypt(lang, k, msg):
 
     return ''.join(cipher)
 
+
 def decrypt(lang, k, msg):
     return crypt(lang, -k, msg)
+
 
 def main():
     while True:
@@ -47,7 +49,6 @@ def main():
         lang = input()
         if 'ru' == lang or lang == 'en':
             break
-
 
     while True:
         print('Введите целое неотрицательное число-ключ: ', end='')
@@ -67,5 +68,6 @@ def main():
         res = decrypt(lang, k, msg)
 
     print(f'Результат: {res}')
+
 
 main()
