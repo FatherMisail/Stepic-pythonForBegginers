@@ -2,7 +2,7 @@ def crypt(lang, k, msg):
     cipher = []
 
     for c in msg:
-        base = ''
+        base = -1
         if lang == 'ru':
             n = ord('Я') - ord('А') + 1
             if 'а' <= c <= 'я':
@@ -16,12 +16,12 @@ def crypt(lang, k, msg):
             elif 'A' <= c <= 'Z':
                 base = ord('A')
 
-        if base != '':
+        if base == -1:
+            cipher.append(c)
+        else:
             x = ord(c) - base
             y = (x + k) % n
             cipher.append(chr(y + base))
-        else:
-            cipher.append(c)
 
     return ''.join(cipher)
 
@@ -56,13 +56,13 @@ def main():
     msg = ''
     while not msg:
         print('Введите сообщение: ', end='')
-        msg = input().strip()
+        msg = input()
 
     res = ''
     if ct_dct == 0:
-        res = crypt(lang, int(k), msg)
+        res = crypt(lang, k, msg)
     elif ct_dct == 1:
-        res = decrypt(lang, int(k), msg)
+        res = decrypt(lang, k, msg)
 
     print(f'Результат: {res}')
 
