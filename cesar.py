@@ -1,16 +1,19 @@
 def crypt(lang, k, msg):
     cipher = []
 
+    if lang == 'ru':
+        n = ord('Я') - ord('А') + 1
+    elif lang == 'en':
+        n = ord('Z') - ord('A') + 1
+
     for c in msg:
         base = -1
         if lang == 'ru':
-            n = ord('Я') - ord('А') + 1
             if 'а' <= c <= 'я':
                 base = ord('а')
             elif 'А' <= c <= 'Я':
                 base = ord('А')
         elif lang == 'en':
-            n = ord('Z') - ord('A') + 1
             if 'a' <= c <= 'z':
                 base = ord('a')
             elif 'A' <= c <= 'Z':
