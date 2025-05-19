@@ -5,15 +5,15 @@ def crypt(lang, k, msg):
         base = ''
         if lang == 'ru':
             n = ord('Я') - ord('А') + 1
-            if ord('а') <= ord(c) <= ord('я'):
+            if 'а' <= c <= 'я':
                 base = ord('а')
-            elif ord('А') <= ord(c) <= ord('Я'):
+            elif 'А' <= c <= 'Я':
                 base = ord('А')
         elif lang == 'en':
             n = ord('Z') - ord('A') + 1
-            if ord('a') <= ord(c) <= ord('z'):
+            if 'a' <= c <= 'z':
                 base = ord('a')
-            elif ord('A') <= ord(c) <= ord('Z'):
+            elif 'A' <= c <= 'Z':
                 base = ord('A')
 
         if base != '':
