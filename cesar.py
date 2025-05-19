@@ -1,6 +1,7 @@
 def crypt(lang, k, msg):
     cipher = []
 
+    n = 0
     if lang == 'ru':
         n = ord('Я') - ord('А') + 1
     elif lang == 'en':
@@ -61,7 +62,6 @@ def main():
         print('Введите сообщение: ', end='')
         msg = input()
 
-    res = ''
     if ct_dct == 0:
         res = crypt(lang, k, msg)
     elif ct_dct == 1:
