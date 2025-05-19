@@ -63,7 +63,7 @@ def main():
                 break
 
         while True:
-            print('Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ? Введите <Д> или <Н>: ', end='')
+            print('Включать ли прописные буквы <ABCDEFGHIJKLMNOPQRSTUVWXYZ>? Введите <Д> или <Н>: ', end='')
             ans = input()
             if ans == 'Д':
                 chars += uppercase_letters
@@ -72,7 +72,7 @@ def main():
                 break
 
         while True:
-            print('Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz? Введите <Д> или <Н>: ', end='')
+            print('Включать ли строчные буквы <abcdefghijklmnopqrstuvwxyz>? Введите <Д> или <Н>: ', end='')
             ans = input()
             if ans == 'Д':
                 chars += lowercase_letters
@@ -81,7 +81,7 @@ def main():
                 break
 
         while True:
-            print('Включать ли символы !#$%&*+-=?@^_? Введите <Д> или <Н>: ', end='')
+            print('Включать ли символы <!#$%&*+-=?@^_>? Введите <Д> или <Н>: ', end='')
             ans = input()
             if ans == 'Д':
                 chars += punctuation
@@ -90,7 +90,7 @@ def main():
                 break
 
         while True:
-            print('Исключать ли неоднозначные символы il1Lo0O? Введите <Д> или <Н>: ', end='')
+            print('Исключать ли неоднозначные символы <il1Lo0O>? Введите <Д> или <Н>: ', end='')
             ans = input()
             if ans == 'Д':
                 for c in ambiguous_sym:
