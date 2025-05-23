@@ -133,7 +133,6 @@ def play(word):
             if len(s) == 1:
                 if s[0] in guessed_letters:
                     print('Эта буква уже использована')
-                    # print(word_completion)
                     continue
                 else:
                     guessed_letters.append(s[0])
@@ -142,7 +141,6 @@ def play(word):
             else:
                 if s in guessed_words:
                     print('Это слово уже использовано')
-                    # print(word_completion)
                     continue
                 else:
                     guessed_words.append(s)
